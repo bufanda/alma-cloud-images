@@ -7,7 +7,7 @@ name = "pypi"
 pytest-testinfra = "*"
 paramiko = "*"
 pyyaml = "*"
-ansible = "*"
+ansible="~=9.0"
 [dev-packages]
 
 [requires]
