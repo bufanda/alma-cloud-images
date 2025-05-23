@@ -23,7 +23,7 @@ source "qemu" "almalinux-9-xcp-ng-x86_64" {
   memory             = var.memory_x86_64
   net_device         = "virtio-net"
   qemu_binary        = var.qemu_binary
-  vm_name            = "AlmaLinux-9-GenericCloud-${var.os_ver_9}-${formatdate("YYYYMMDD", timestamp())}.x86_64.qcow2"
+  vm_name            = "AlmaLinux-9-XCP-NG-${var.os_ver_9}-${formatdate("YYYYMMDD", timestamp())}.x86_64.qcow2"
   cpu_model          = "host"
   cpus               = var.cpus
   efi_boot           = true
@@ -57,7 +57,7 @@ source "qemu" "almalinux-9-xcp-ng-aarch64" {
   memory             = var.memory_aarch64
   net_device         = "virtio-net"
   qemu_binary        = var.qemu_binary
-  vm_name            = "AlmaLinux-9-GenericCloud-${var.os_ver_9}-${formatdate("YYYYMMDD", timestamp())}.aarch64.qcow2"
+  vm_name            = "AlmaLinux-9-XCP-NG-${var.os_ver_9}-${formatdate("YYYYMMDD", timestamp())}.aarch64.qcow2"
   cpu_model          = "host"
   cpus               = var.cpus
   qemuargs = [
@@ -88,7 +88,7 @@ source "qemu" "almalinux-9-xcp-ng-ppc64le" {
   memory             = var.memory_ppc64le
   net_device         = "virtio-net"
   qemu_binary        = var.qemu_binary
-  vm_name            = "AlmaLinux-9-GenericCloud-${var.os_ver_9}-${formatdate("YYYYMMDD", timestamp())}.ppc64le.qcow2"
+  vm_name            = "AlmaLinux-9-XCP-NG-${var.os_ver_9}-${formatdate("YYYYMMDD", timestamp())}.ppc64le.qcow2"
   cpus               = var.cpus
 }
 
