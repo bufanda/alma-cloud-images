@@ -114,7 +114,7 @@ build {
       "--extra-vars",
       "is_unified_boot=true",
       "--extra-vars",
-      "ansible_python_interpreter=/usr/bin/python3"
+      "ansible_python_interpreter=/usr/libexec/platform-python"
     ]
     only = ["qemu.almalinux-8-xcp-ng-x86_64"]
   }
