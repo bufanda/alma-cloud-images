@@ -40,6 +40,15 @@
       - tcpdump
     enablerepo: epel
     state: present
+  when: ansible_distribution_major_version | int <= 9
+
+- name: Install xen guest agent for AlmaLinux >= 10
+  ansible.builtin.dnf:
+    name: https://gitlab.com/xen-project/xen-guest-agent/-/jobs/6041686376/artifacts/raw/RPMS/x86_64/xen-guest-agent-0.4.0-0.fc37.x86_64.rpm
+    state: present
+    update_cache: false
+    disable_gpg_check: true
+  when: ansible_distribution_major_version | int >= 10
 
 - name: Install TuneD
   ansible.builtin.dnf:
@@ -50,6 +59,13 @@
   ansible.builtin.systemd_service:
     name: xe-linux-distribution.service
     enabled: true
+  when: ansible_distribution_major_version | int <= 9
+
+- name: Enable Xen Agent service
+  ansible.builtin.systemd_service:
+    name: xen-guest-agent.service
+    enabled: true
+  when: ansible_distribution_major_version | int >= 10
 
 - name: Enable TuneD service
   ansible.builtin.systemd_service:
