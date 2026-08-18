@@ -85,6 +85,11 @@
     fail_msg: Configured active profile is not same as current one
     success_msg: The configured TuneD profile is current
 
+- name: Force a tuned restart
+  ansible.builtin.systemd:
+    name: tuned
+    state: restarted
+    
 - name: Get status of TuneD settings
   ansible.builtin.command:
     cmd: tuned-adm verify
